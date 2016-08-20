@@ -1,0 +1,8 @@
+slim:
+  # build: .
+  image: angeliski/docker-slim-custom
+  ports:
+    - "8080:80"
+  volumes:
+    - "./api:/var/www/html/api"
+    # - "slim:/var/www/html/api"
