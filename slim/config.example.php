@@ -3,7 +3,7 @@
  * config settings
  */
 
-$config['displayErrorDetails'] = false;
+$config['displayErrorDetails'] = true;
 $config['addContentLengthHeader'] = false;
 
 $config['db']['host']   = "localhost";

@@ -29,7 +29,7 @@ $app->get('/', function () {
 
 $app->get('/list', function () {
     // print "some list here";
-    $sth = $this->db->prepare("SELECT * FROM site_member_list ORDER BY seq");
+    $sth = $this->db->prepare("SELECT * FROM site_board_field ORDER BY idx");
     $sth->execute();
     $results = $sth->fetchAll();
     return $this->response->withJson($results);
