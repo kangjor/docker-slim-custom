@@ -14,8 +14,7 @@ $container = $app->getContainer();
 // PDO database library
 $container['db'] = function ($c) {
     $db = $c['settings']['db'];
-    $pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'],
-    $db['user'], $db['pass']);
+    $pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'], $db['user'], $db['pass']);
     // fixed character encoding problem
     $pdo -> exec("set names utf8");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
