@@ -15,7 +15,7 @@ $container = $app->getContainer();
 $container['db'] = function ($c) {
     $db = $c['settings']['db'];
     $pdo = new PDO("mysql:host=" . $db['host'] . ";dbname=" . $db['dbname'],
-        $db['user'], $db['pass']);
+    $db['user'], $db['pass']);
     // fixed character encoding problem
     $pdo -> exec("set names utf8");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -25,21 +25,19 @@ $container['db'] = function ($c) {
 
 
 $app->get('/', function () {
-   print "API Version 1.0";
+    print "API Version 1.0";
 });
 
 $app->get('/list', function () {
-   // print "some list here";
-
-   $sth = $this->db->prepare("SELECT * FROM site_member_list ORDER BY seq");
+    // print "some list here";
+    $sth = $this->db->prepare("SELECT * FROM site_member_list ORDER BY seq");
     $sth->execute();
     $results = $sth->fetchAll();
     return $this->response->withJson($results);
-
 });
 
 $app->get('/name/{name}', function ($request, $response, $args) {
-   print $args['name'];
+    print $args['name'];
 });
 
 $app->run();
